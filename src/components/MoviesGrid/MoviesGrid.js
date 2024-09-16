@@ -6,7 +6,7 @@ import "./MoviesGrid.css"
 class MoviesGrid extends Component {
     constructor(props){
         super(props)
-        this.state = { datos: [], inputName : "" }
+        this.state = { datos: []}
         // console.log(props.url);
         
     }

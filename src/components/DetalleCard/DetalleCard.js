@@ -1,20 +1,15 @@
-import './MoviesGridCard.css'
+import './DetalleCard.css'
 
 import React, {Component} from 'react'
-import { Link } from 'react-router-dom'
 
-class MoviesGridCard extends Component {
+class DetalleCard extends Component {
     constructor(props){
         super(props)
-        // console.log(this.props.pelicula);
-        this.state = {verDesc: false, fav: false}
+        
+        this.state = {
+            fav: false
+        }
     }
-    handleverDesc(){
-        this.setState({
-            verDesc: !this.state.verDesc
-          })
-    }
-
     componentDidMount(){
         const storage = localStorage.getItem("favoritos")
         if ( storage !== null){
@@ -48,25 +43,30 @@ class MoviesGridCard extends Component {
         localStorage.setItem("favoritos", stringStorage)
         this.setState({fav: false})
     }
-    render(){
-        console.log(this.props);
-            
-        const { poster_path, title, overview, id } = this.props.pelicula;
+    render(){            
+        const { poster_path, title, vote_average, genres, release_date, runtime, overview, } = this.props.pelicula;
         return(
-            <article  className='card'>
-                
-                <img src= {`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
-                <h4> {title} </h4> 
-                <br></br>
-                <button className = "more" onClick={()=> !this.state.fav ? this.agregarFav() : this.quitarFav()  }>
-                    
-                    {this.state.fav ? "Quitar de favoritos" : "Agregar a favoritos"}</button>
-                <p className = "more"><Link to= {`/pelicula/id/${id}`} className="link">Ir a detalle</Link></p>
-                <article className={ this.state.verDesc ? "show" : "hide" }>
+            <article  className='card-detalle'>
+                <section className = 'detalle'>
+                    <img src= {`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
+                </section>
+                <section className = 'detalle'>
+                    <h4> {title} </h4> 
+                    <ul>
+                        <li>Rating: {vote_average}</li>
+                        <li>Fecha de estreno: {release_date}</li>
+                        <li>Duracion: {runtime}</li>
+                        <li>Genero/s:</li>
+                        <ul> 
+                            {genres && genres.length > 0 ? (genres.map((genre, idx) => <li key={idx}>{genre.name}</li>)):(<li>No hay generos disponibles</li>)}
+                        </ul>                        
+                    </ul>
                     <p>{overview}</p> 
-                </article>
-                <p className = "more" onClick={()=> this.handleverDesc()}>{this.state.verDesc ? "Ocultar Descripcion" : "Ver Descripcion"}</p>
-            
+                    <button className = "more" onClick={()=> !this.state.fav ? this.agregarFav() : this.quitarFav()  }>
+                    
+                    {this.state.fav ? "Quitar de favoritos" : "Agregar a favoritos"}</button>   
+                </section>
+                
             </article>
          
         );
@@ -74,4 +74,4 @@ class MoviesGridCard extends Component {
 
 }
 
-export default MoviesGridCard
+export default DetalleCard

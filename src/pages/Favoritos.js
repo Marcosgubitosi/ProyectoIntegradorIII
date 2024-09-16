@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import MoviesGridCard from '../components/MoviesGridCard/MoviesGridCard';
-import MoviesGrid from '../components/MoviesGrid/MoviesGrid';
 
 class Favoritos extends Component {
     constructor(props){
