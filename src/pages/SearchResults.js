@@ -27,10 +27,12 @@ class SearchResults extends Component{
             <div>  
                 <h1> Resultados de busqueda</h1>
                 <article className='container'>
-                    {this.state.isLoading === true ? (
+                    {this.state.movies.length === 0 ? (
+                    <h2>No hay resultados para tu busqueda</h2>):(this.state.isLoading === true ? (
                         <h3>Cargando...</h3>
                     ): (this.state.movies.map((pelicula, idx) => (
-                        <MoviesGridCard key={idx}  pelicula = {pelicula} /> )))}
+                        <MoviesGridCard key={idx}  pelicula = {pelicula} /> ))))}
+
                 </article> 
             </div>
         )
