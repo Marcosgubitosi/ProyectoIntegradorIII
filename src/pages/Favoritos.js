@@ -30,10 +30,10 @@ componentDidMount(){
         return (
           <>
             <h1>Favoritos</h1>
-            <ul className="container">
+            <div className="container">
                 {this.state.peliculas.map((pelicula, idx) => (
                     <MoviesGridCard key={idx}  pelicula = {pelicula} /> ))}
-            </ul>
+            </div>
           </>
         );
       }

@@ -25,9 +25,11 @@ class SearchResults extends Component{
     render(){
         return(
             <div>  
-                <h1> Resultados de busqueda</h1> 
-                 {this.state.movies.map((pelicula, idx) => (
-                <MoviesGridCard key={idx}  pelicula = {pelicula} /> ))}
+                <h1> Resultados de busqueda</h1>
+                <article className='container'>
+                    {this.state.movies.map((pelicula, idx) => (
+                    <MoviesGridCard key={idx}  pelicula = {pelicula} /> ))}
+                </article> 
             </div>
         )
     }
