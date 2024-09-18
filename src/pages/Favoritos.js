@@ -29,9 +29,11 @@ componentDidMount(){
         console.log(this.state.peliculas);
         return (
           <>
-          <h1>Favoritos</h1>
-          {this.state.peliculas.map((pelicula, idx) => (
-            <MoviesGridCard key={idx}  pelicula = {pelicula} /> ))}
+            <h1>Favoritos</h1>
+            <ul className="container">
+                {this.state.peliculas.map((pelicula, idx) => (
+                    <MoviesGridCard key={idx}  pelicula = {pelicula} /> ))}
+            </ul>
           </>
         );
       }
