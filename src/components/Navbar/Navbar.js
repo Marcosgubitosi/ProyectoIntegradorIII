@@ -4,6 +4,7 @@ const Navbar= () => {
    
     return (
         <>
+            <img className="logo" src='./img/png-logo-proyectoprograIII.png' alt=''></img>
             <ul className="main-nav">
                 <li><Link to="/" className="link">Home</Link></li>
                 <li><Link to="/nowplaying" className="link">Now Playing</Link></li>
