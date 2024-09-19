@@ -48,7 +48,9 @@
 body{
     margin: 0;
     padding: 5px;
-    background-color: black;
+    background-image: url(../../../public/img/fondo-web.jpeg);
+    background-attachment:fixed;
+    background-size: 100%;
 }
 button{
     border-radius: 10px;

@@ -25,7 +25,7 @@ class MoviesGrid extends Component {
       const limit = (this.props.limit) ? this.props.limit : this.state.datos.length;
         return (
           <>
-            <section>
+            <section className='main'>
                 <h2>{this.props.title}</h2>
                 <ul className='container'>
               {this.state.datos.length === 0 ? (
