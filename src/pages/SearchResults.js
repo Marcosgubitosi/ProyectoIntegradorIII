@@ -5,6 +5,8 @@ import MoviesGridCard from '../components/MoviesGridCard/MoviesGridCard';
 class SearchResults extends Component{
     constructor(props){
         super(props);
+        console.log(props);
+        
         this.state = { 
             movies : [],
             isLoading: true
@@ -28,7 +30,7 @@ class SearchResults extends Component{
                 <h1> Resultados de busqueda</h1>
                 <article className='container'>
                     {this.state.movies.length === 0 ? (
-                    <h2>No hay resultados para tu busqueda</h2>):(this.state.isLoading === true ? (
+                    <h2>No hay resultados para: "{this.props.location.state.query}"</h2>):(this.state.isLoading === true ? (
                         <h3>Cargando...</h3>
                     ): (this.state.movies.map((pelicula, idx) => (
                         <MoviesGridCard key={idx}  pelicula = {pelicula} /> ))))}

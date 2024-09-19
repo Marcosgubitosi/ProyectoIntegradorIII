@@ -53,13 +53,12 @@ class MoviesGridCard extends Component {
             
         const { poster_path, title, overview, id } = this.props.pelicula;
         return(
-            <article  className='card'>
+            <article className = {this.state.fav? "favcard":"card"}>
                     <img src= {`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
                     <h4> {title} </h4> 
                     <br></br>
-                    <button className = "more" onClick={()=> !this.state.fav ? this.agregarFav() : this.quitarFav()  }>
-                        
-                        {this.state.fav ? "Quitar de favoritos" : "Agregar a favoritos"}</button>
+                    <button className = {this.state.fav? "favbutton":"more"} onClick={()=> !this.state.fav ? this.agregarFav() : this.quitarFav()  }>
+                    {this.state.fav ? "Quitar de favoritos" : "Agregar a favoritos"}</button>
                     <p className = "more"><Link to= {`/pelicula/id/${id}`} className="link">Ir a detalle</Link></p>
                     <article className={ this.state.verDesc ? "show" : "hide" }>
                         <p>{overview}</p> 

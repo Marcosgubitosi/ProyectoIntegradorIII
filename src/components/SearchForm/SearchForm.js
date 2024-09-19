@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-
+import "./SearchForm.css"
 
 class SearchForm extends Component{
     constructor(props){
@@ -19,16 +19,16 @@ class SearchForm extends Component{
 
     handleFormSubmit(){
         this.props.history.push("/search", {query: this.state.query})
-        console.log("se envio el form", this.state.query)
+        // console.log("se envio el form", this.state.query)
     }
    
 
     render(){
         return(
-            <div className="row card-container">
-              <form onSubmit={(e) => this.handleCancelSubmit(e)}>
-               <input onChange={(e) => this.handleFormChange(e)} value={this.state.query} name='query'/>
-               <button onClick={() => this.handleFormSubmit()} > Search </button>
+            <div className="fcontainer">
+              <form className = "search" onSubmit={(e) => this.handleCancelSubmit(e)}>
+               <input className = "isearch" onChange={(e) => this.handleFormChange(e)} value={this.state.query} name='query'/>
+               <button className = "bsearch" onClick={() => this.handleFormSubmit()} > Search </button>
               </form>
             </div>
         )
