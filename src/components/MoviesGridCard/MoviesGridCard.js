@@ -49,7 +49,7 @@ class MoviesGridCard extends Component {
         this.setState({fav: false})
     }
     render(){
-        console.log(this.props);
+        //console.log(this.props);
             
         const { poster_path, title, overview, id } = this.props.pelicula;
         return(

@@ -9,6 +9,7 @@ class Home extends Component{
     }
 
     render(){
+        //console.log(this.props.history)
         return(
         <>
             <h1>Home</h1>
