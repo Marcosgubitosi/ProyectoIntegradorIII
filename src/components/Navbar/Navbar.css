@@ -75,3 +75,13 @@ h1{
 h3{
     color: #c4c4c4;
 }
+@media (max-width: 650px){
+    .navbar{
+        display: flex;
+        flex-direction: column;
+    }
+    .main-nav {
+        display: flex;
+        flex-direction: column;
+    }
+}

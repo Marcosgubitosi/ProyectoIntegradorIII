@@ -4,3 +4,16 @@ header {
     background-color: #ebc700;
 
 }
+
+@media (max-width: 650px){
+    header{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding-left: 20px;
+
+    }
+    .nav{
+        font-size: 14px;
+    }
+}
