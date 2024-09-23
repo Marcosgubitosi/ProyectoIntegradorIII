@@ -36,8 +36,8 @@ class MoviesGrid extends Component {
       })
     }
     render() { 
+      const limit = this.props.limit ? (this.props.limit):(this.state.datos.length)
       const pelis = this.state.datos.slice(0,this.props.limit)
-      const pelisFilt = this.state.pelisFiltradas.slice(0,this.props.limit)
       //console.log(this.state.pelisFiltradas)
       console.log(pelis);
       
@@ -45,20 +45,20 @@ class MoviesGrid extends Component {
           <>
             <section className='main'>
                 <h2>{this.props.title}</h2>
-                <Filtrado filtrarPeliculas={(nom) => this.filtrarPeliculas(nom)}/>
+                {limit !== 5 ? (<Filtrado filtrarPeliculas={(nom) => this.filtrarPeliculas(nom)}/> ): (<p></p>)}
                 <ul className='container'>
               {this.state.isLoading ? (
                   <h3>Cargando...</h3>
               ):(this.state.datos.length === 0 ? (
                 <h3> No hay peliculas con ese filtro</h3>
               ) : 
-              (this.state.datos.slice(0,5).map((pelicula,idx) => (
+              (this.state.datos.slice(0,limit).map((pelicula,idx) => (
                 <MoviesGridCard key={idx} pelicula={pelicula}/>)
               ))) }
-              
+  
              
               
-              {this.props.limit !== 5 ? ( <button onClick={() => this.HandleCargarMas() }>Cargar +</button>): (<p></p>)}
+              {limit !== 5 ? ( <button onClick={() => this.HandleCargarMas() }>Cargar +</button>): (<p></p>)}
               </ul>
             </section>
           </>
