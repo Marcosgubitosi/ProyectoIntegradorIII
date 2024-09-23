@@ -7,19 +7,22 @@ import Filtrado from '../Filtrado/Filtrado'
 class MoviesGrid extends Component {
     constructor(props){
         super(props)
-        this.state = { datos: [], pelisMostradas: 5, pelisFiltradas: []}
-        // console.log(props.url);
+        this.state = { datos: [], pelisFiltradas: [], page: 1}
+        console.log(props);
         
     }
     componentDidMount (){
-        // console.log(this.props.url);
-          fetch(this.props.url)
+        // console.log(`${this.props.url}${this.state.page}`);
+          fetch(`${this.props.url}${this.state.page}`)
             .then(response => response.json())
             .then(data => this.setState({datos: data.results}))
             .catch(err => console.error(err));
     }
-    HandleCargarMas(){
-      this.setState({pelisMostradas: this.state.pelisMostradas + 5})
+    HandleCargarMas(){ 
+      fetch(`${this.props.url}${this.state.page + 1}`)
+      .then(response => response.json())
+      .then((data) => this.setState({datos: this.state.datos.concat(data.results), page: this.state.page + 1}))      
+      
     }
     filtrarPeliculas(nombre){
       const pelFiltradas = this.state.datos.filter(
@@ -30,10 +33,11 @@ class MoviesGrid extends Component {
       })
     }
     render() { 
-      const pelis = this.state.datos.slice(0,this.state.pelisMostradas)
-      const pelisFilt = this.state.pelisFiltradas.slice(0,this.state.pelisMostradas)
-      const limit = (this.props.limit) ? this.props.limit : this.state.datos.length;
+      const pelis = this.state.datos.slice(0,this.props.limit)
+      const pelisFilt = this.state.pelisFiltradas.slice(0,this.props.limit)
       //console.log(this.state.pelisFiltradas)
+      console.log(pelis);
+      
         return (
           <>
             <section className='main'>
@@ -51,7 +55,7 @@ class MoviesGrid extends Component {
                 )))
               )}
               
-              {this.state.pelisMostradas < limit ? ( <button onClick={() => this.HandleCargarMas() }>Cargar +</button>): (<p></p>)}
+              {this.props.limit !== 5 ? ( <button onClick={() => this.HandleCargarMas() }>Cargar +</button>): (<p></p>)}
               </ul>
             </section>
           </>

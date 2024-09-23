@@ -56,7 +56,7 @@ class DetalleCard extends Component {
                         <li>Rating: {vote_average}</li>
                         <li>Fecha de estreno: {release_date}</li>
                         <li>Duracion: {runtime}</li>
-                        <li>Genero/s:</li>
+                        {genres.length > 0 ? (<li>Generos:</li>):(<li>Genero:</li>)}
                         <ul> 
                             {genres && genres.length > 0 ? (genres.map((genre, idx) => <li key={idx}>{genre.name}</li>)):(<li>No hay generos disponibles</li>)}
                         </ul>                        

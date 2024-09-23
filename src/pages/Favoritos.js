@@ -20,8 +20,8 @@ componentDidMount(){
                 peliculas: [...this.state.peliculas, data]
             })
         })
-         )
-        )
+         
+        ))
     }
 }
     
