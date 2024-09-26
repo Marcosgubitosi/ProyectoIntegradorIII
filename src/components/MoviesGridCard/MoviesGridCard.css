@@ -14,6 +14,7 @@
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 .15rem 1.75rem 0 rgb(248, 248, 248);
+    text-align: center;
 }
 .favcard{
     color: #777;
@@ -25,6 +26,8 @@
     background: #fff;
     border-radius: 5px;
     box-shadow: 0 .15rem 1.75rem 0 #ebc700;
+    text-align: center;
+
 }
 .favcard:hover{
     box-shadow: 0rem 0rem 10px 8px  #ebc700;
@@ -36,16 +39,32 @@
 .card:hover{
 box-shadow: 0rem 0rem 10px 8px  #c4c4c4 ;
 }
-.card p , .favcard p{
+.card p, .favcard p{
     margin: 3px 0;
 }
-.card h4 , .favcard h4{
-    margin: 2px 0;
+.card h4, .favcard h4{
+    margin: 2px 10px;
+}
+.favcard h4{
+    color: #ebc700;
+}
+.bot{
+    /* text-align: right; */
+    font-size: 15px;
+}
+.bot:hover{
+    border-radius: 10px;
+    padding: 5px;
+    margin-bottom: 10px;
+    background-color: #ebc700 ;
+    cursor: pointer;
 }
 .more{
     /* color: #ebc700; */
-    text-align: right;
-    font-size: 15px;
+    /* text-align: right; */
+    font-size: 13px;
+    width: 100%;
+    border: 0px;
 }
 .more:hover{
     border-radius: 10px;
@@ -74,6 +93,9 @@ box-shadow: 0rem 0rem 10px 8px  #c4c4c4 ;
 }
 h2{
     color: #c4c4c4;
+}
+.favbutton i, .bot i {
+    margin-left: 5px;
 }
 
 @media (max-width: 650px){

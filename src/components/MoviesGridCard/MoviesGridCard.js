@@ -55,15 +55,19 @@ class MoviesGridCard extends Component {
         return(
             <article className = {this.state.fav? "favcard":"card"}>
                     <img src= {`https://image.tmdb.org/t/p/original${poster_path}`} alt="" />
-                    <h4> {title} </h4> 
-                    <br></br>
-                    <button className = {this.state.fav? "favbutton":"more"} onClick={()=> !this.state.fav ? this.agregarFav() : this.quitarFav()  }>
-                    {this.state.fav ? "Quitar de favoritos" : "Agregar a favoritos"}</button>
-                    <p className = "more"><Link to= {`/pelicula/id/${id}`} className="link">Ir a detalle</Link></p>
+                        <h4>{title}</h4>
+                        <br></br>
+                        <button className={this.state.fav ? "favbutton" : "bot"} onClick={() => !this.state.fav ? this.agregarFav() : this.quitarFav()}>
+                            {this.state.fav ? " Quitar" : " Agregar"} 
+                            <i className={this.state.fav ? "fas fa-heart" : "far fa-heart"}></i> 
+                        </button>
+                        <br></br>
+                        <br></br>
+                    <button className = "more"><Link to= {`/pelicula/id/${id}`} className="link">Ir a detalle</Link></button>
                     <article className={ this.state.verDesc ? "show" : "hide" }>
                         <p>{overview}</p> 
                     </article>
-                    <p className = "more" onClick={()=> this.handleverDesc()}>{this.state.verDesc ? "Ocultar Descripcion" : "Ver Descripcion"}</p>
+                    <button className = "more" onClick={()=> this.handleverDesc()}>{this.state.verDesc ? "Ocultar Descripcion" : "Ver Descripcion"}</button>
             </article>
          
         );

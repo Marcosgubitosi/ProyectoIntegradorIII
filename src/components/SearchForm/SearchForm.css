@@ -1,10 +1,10 @@
-/* .search{
-    
-} */
+
 .bsearch{
     border-radius: 10px;
     padding: 5px;
     margin-bottom: 10px;
+    border-color: #ebc700;
+    margin-left: 10px;
 }
 .bsearch:hover{
     border-radius: 10px;
@@ -17,8 +17,15 @@
     border-radius: 10px;
     padding: 5px;
     margin-bottom: 10px;
+    border-color: #ebc700;
 }
 .fcontainer{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+.search{
     display: flex;
     flex-direction: row;
     justify-content: center;
