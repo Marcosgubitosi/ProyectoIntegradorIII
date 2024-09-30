@@ -63,7 +63,7 @@ class MoviesGridCard extends Component {
                         </button>
                         <br></br>
                         <br></br>
-                    <button className = "more"><Link to= {`/pelicula/id/${id}`} className="link">Ir a detalle</Link></button>
+                   <Link to= {`/pelicula/id/${id}`} className="link"> <button className = "more">Ir a detalle</button></Link>
                     <article className={ this.state.verDesc ? "show" : "hide" }>
                         <p>{overview}</p> 
                     </article>
